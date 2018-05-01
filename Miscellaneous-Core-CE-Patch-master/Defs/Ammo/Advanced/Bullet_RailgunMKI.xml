@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingCategoryDef>
+      <defName>AmmoRailgunMKI</defName>
+      <label>Railgun MKI</label>
+      <parent>AmmoAdvanced</parent>
+      <iconPath>UI/Icons/ThingCategories/CaliberCharge</iconPath>
+    </ThingCategoryDef>
+	
+	<!-- ==================== AmmoSet ========================== -->
+
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_RailgunMKI</defName>
+    <label>Railgun MKI ammo</label>
+    <ammoTypes>
+      <Ammo_RailgunMKI>Bullet_RailgunMKI</Ammo_RailgunMKI>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+	
+	<!-- ==================== Ammo ========================== -->
+
+  <ThingDef Name="RailgunMKIBase" ParentName="AmmoBase" Abstract="True">
+    <description>Railgun MKI ammo</description>
+    <statBases>
+	  <Mass>0.01</Mass>
+	  <Bulk>0.02</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>AmmoRailgunMKI</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="RailgunMKIBase">
+    <defName>Ammo_RailgunMKI</defName>
+    <label>Railgun MKI cartridge</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rifle/FMJ</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.95</MarketValue>
+    </statBases>
+    <ammoClass>Charged</ammoClass>
+  </ThingDef>
+	
+	<!-- ================== Projectiles ================== -->
+
+  <ThingDef Name="BaseRailgunMKI" ParentName="BaseBullet" Abstract="true">
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <speed>250</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseRailgunMKI">
+    <defName>Bullet_RailgunMKI</defName>
+    <label>railgun bullet</label>
+    <projectile>
+      <damageAmountBase>35</damageAmountBase>
+      <armorPenetration>5.0</armorPenetration>
+    </projectile>
+  </ThingDef>
+	
+  <RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_RailgunMKI</defName>
+		<label>make RailgunMKI ammo x20</label>
+		<description>Craft 20 RailgunMKI ammo.</description>
+		<jobString>Making RailgunMKI ammo.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Component</li>
+					</thingDefs>
+				</filter>
+				<count>3</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_RailgunMKI>20</Ammo_RailgunMKI>
+		</products>
+    <workAmount>2250</workAmount>
+  </RecipeDef>
+	
+</Defs>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_RailgunMKI</defName>
+    <statBases>
+      <Mass>6.25</Mass>
+      <RangedWeapon_Cooldown>3.45</RangedWeapon_Cooldown>
+      <SightsEfficiency>1.0</SightsEfficiency>
+      <ShotSpread>0.1</ShotSpread>
+      <SwayFactor>1.5</SwayFactor>
+      <Bulk>4.50</Bulk>
+    </statBases>
+    <Properties>
+		<recoilAmount>0.60</recoilAmount>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_RailgunMKI</defaultProjectile>
+      <warmupTime>3.75</warmupTime>
+      <range>45</range>
+      <soundCast>ShotChargeRifle</soundCast>
+      <soundCastTail>GunTail_Medium</soundCastTail>
+      <muzzleFlashScale>8</muzzleFlashScale>
+	  <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+        <burstShotCount>2</burstShotCount>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>10</magazineSize>
+      <reloadTime>4.25</reloadTime>
+      <ammoSet>AmmoSet_RailgunMKI</ammoSet>
+    </AmmoUser>
+    <FireModes>
+    	<aiUseBurstMode>TRUE</aiUseBurstMode>
+    	<aiAimMode>AimedShot</aiAimMode>
+    </FireModes>
+    <weaponTags>
+	  <li>SniperRifle</li>
+	  <li>AdvancedGun</li>
+    </weaponTags>
+  </Operation>
+ 
+  <Operation Class="PatchOperationReplace">
+	<xpath>*/ThingDef[defName="Gun_RailgunMKI"]/tools</xpath>
+	<value>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>1.8</cooldownTime>
+				<armorPenetration>0.2</armorPenetration>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>1.9</cooldownTime>
+				<armorPenetration>0.2</armorPenetration>
+			</li>
+		</tools>
+	</value>	
+   </Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="Gun_RailgunMKI"]</xpath>
+		<value>
+			<equippedStatOffsets>
+				<MeleeCritChance>0.2</MeleeCritChance>
+				<MeleeParryChance>0.45</MeleeParryChance>
+			</equippedStatOffsets>
+		</value>
+	</Operation>
+ 
+</Patch>

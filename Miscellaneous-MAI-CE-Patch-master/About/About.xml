@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>MAI CE Patch</name>
+	<author>Saebbi</author>
+	<url></url>
+	<targetVersion>0.18.1722</targetVersion>
+	<description>Patches the MAI mod to work with Combat Extended.</description>
+</ModMetaData>
